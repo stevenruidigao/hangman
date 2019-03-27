@@ -67,8 +67,8 @@ function getRandomWord() {
     var word = words[Math.floor(Math.random() * words.length)];
 
     answerArray = word.split('')
-    console.log(answerArray)
-    alert(word)
+    // console.log(answerArray)
+    // alert(word)
     return word;
 }
 
@@ -96,7 +96,7 @@ function userGuessLetter(keyPressedLetter) {
 
         var userGuessedChar = keyPressedLetter.toLowerCase();
 
-        console.log(userGuessedChar)
+        // console.log(userGuessedChar)
 
         if (answerArray.includes(userGuessedChar)) {
             //check if letter is in answer word 
@@ -106,12 +106,12 @@ function userGuessLetter(keyPressedLetter) {
                 }
             }
             updateUiAnswer()
-            console.log(userAnswer)
+            // console.log(userAnswer)
         } 
         else { //guessedChar is not in the answer
             amountOfIncorrectChars += 1
             guessesLeft--;
-            console.log("Sorry", userGuessedChar, "is not in the answer")
+            // console.log("Sorry", userGuessedChar, "is not in the answer")
         }
 
 
@@ -123,7 +123,7 @@ function userGuessLetter(keyPressedLetter) {
             $(keyBoardKeyId).attr("disabled", true);
         }
         document.getElementById("incorrectGuessesLeftCount").innerHTML = guessesLeft;
-        console.log(alreadyUsedChars)
+        // console.log(alreadyUsedChars)
 
         checkIsGameOver = checkGameOver(answerArray, amountOfIncorrectChars)
         if (checkIsGameOver[0]) {
@@ -137,13 +137,13 @@ function userGuessLetter(keyPressedLetter) {
 //checks if game is over
 function checkGameOver(answerArray, amountOfIncorrectChars) {
     if (userAnswer.toString() === answerArray.toString()) {
-        console.log(true)
+        // console.log(true)
         return [true, 0]; //0 = you win
     } else if (amountOfIncorrectChars === 5) {
-        console.log(true)
+        // console.log(true)
         return [true, 1]; //1 = you lost
     } else {
-        console.log(false)
+        // console.log(false)
         return [false, 2]; //continue playing
     }
 }
