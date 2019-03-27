@@ -16,6 +16,9 @@ var answerArray;
 //array of the word as game progresses
 var userAnswer;
 
+//bool for if user has guessed the answer
+var isGameOver;
+
 
 //Starts the game.
 function startGame() {
@@ -23,6 +26,7 @@ function startGame() {
     alreadyUsedChars = [];
     userAnswer = [];
     answerArray = []
+    isGameOver = false;
 
     randomWord = getRandomWord();
     randomWordLength = randomWord.length;
@@ -61,54 +65,62 @@ function getDashedString(word) {
 
 //
 function updateUiAnswer() {
-
+    console.log(answerArray);
 }
 
 //user guesses letter 
 //then, checks if guess in word
 function userGuessLetter() {
-    var guessesLeft = 5 - amountOfIncorrectChars;
-    console.log("Letters already used: ", alreadyUsedChars)
-    console.log("Incorrect guesses left: " + guessesLeft)
+    if (!isGameOver) {
+        var guessesLeft = 5 - amountOfIncorrectChars;
+        console.log("Letters already used: ", alreadyUsedChars)
+        console.log("Incorrect guesses left: " + guessesLeft)
 
-    var userGuessedChar = prompt("Guess a letter")
+        var userGuessedChar = prompt("Guess a letter")
 
-    if (alreadyUsedChars.includes(userGuessedChar)) {
-        //check if user already guessed inputted letter
-        console.log("You have already guessed that letter")
-        userGuessLetter(answerArray, amountOfIncorrectChars)
-    } else if (answerArray.includes(userGuessedChar)) {
-        //check if letter is in answer word 
-        for (var i = 0; i < answerArray.length; i++) {
-            if (answerArray[i] == userGuessedChar) {
-                userAnswer[i] = userGuessedChar
-                alreadyUsedChars.push(userGuessedChar)
+        if (alreadyUsedChars.includes(userGuessedChar)) {
+            //check if user already guessed inputted letter
+            console.log("You have already guessed that letter")
+            userGuessLetter(answerArray, amountOfIncorrectChars)
+        } else if (answerArray.includes(userGuessedChar)) {
+            //check if letter is in answer word 
+            for (var i = 0; i < answerArray.length; i++) {
+                if (answerArray[i] == userGuessedChar) {
+                    userAnswer[i] = userGuessedChar
+                    alreadyUsedChars.push(userGuessedChar)
+                }
             }
+            updateUiAnswer()
+            // console.log(userAnswer)
+        } else { //guessedChar is not in the answer
+            amountOfIncorrectChars += 1
+            console.log("Sorry", userGuessedChar, "is not in the answer")
         }
-        console.log(userAnswer)
-    } else { //guessedChar is not in the answer
-        amountOfIncorrectChars += 1
-        console.log("Sorry", userGuessedChar, "is not in the answer")
-    }
 
-    if (!alreadyUsedChars.includes(userGuessedChar)) {
-        alreadyUsedChars.push(userGuessedChar)
-    }
+        if (!alreadyUsedChars.includes(userGuessedChar)) {
+            alreadyUsedChars.push(userGuessedChar)
+        }
 
-    isGameOver = checkGameOver(answerArray, amountOfIncorrectChars)
-    if (!isGameOver[0]) {
-        userGuessLetter(answerArray, amountOfIncorrectChars)
-    } else {
-        console.log(isGameOver[1])
+        isGameOver = checkGameOver(answerArray, amountOfIncorrectChars)
+        if (!isGameOver[0]) {
+            userGuessLetter(answerArray, amountOfIncorrectChars)
+        } else {
+            console.log(isGameOver[1])
+        }
     }
 }
 
 function checkGameOver(answerArray, amountOfIncorrectChars) {
+    console.log(userAnswer + ", " + answerArray);
+    console.log(userAnswer.toString() === answerArray.toString());
     if (userAnswer === answerArray) {
+        console.log(true)
         return [true, "You won!"];
     } else if (amountOfIncorrectChars === 5) {
+        console.log(true)
         return [true, "You lost!"];
     } else {
+        console.log(false)
         return [false, "ok"];
     }
 }
