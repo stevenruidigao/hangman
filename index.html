@@ -7,25 +7,32 @@
     <title>Hangman</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet" type="stylesheet/css" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
     <center>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 25rem;">
             <div class="card-body">
                 <center>
                     <h5 class="card-title">Hangman</h5>
                 </center>
-                <center><input id="userString" class="text-center" type="text" disabled></input></center>
-                <center><button id="startGame" onclick="startGame()">Start Game</button></center>
+
+                <center><input id="userString" class="text-center" type="text" disabled></center>
+
+                <div class="container button-group">
+                    <div class="row">
+                        <div class="col-lg-6 text-right"><button id="startGame" class="btn btn-success" onclick="startGame()">Start Game</button></div>
+                        <div class="col-lg-6 text-left"><button class="btn btn-outline-danger" onclick="resetGame()">Reset Game</button></div>
+                    </div>
+                </div>
             </div>
         </div>
     </center>
 
 
-    <center><button onclick="resetGame()">Reset Game</button></center>
+
     <script src="script.js"></script>
 </body>
 

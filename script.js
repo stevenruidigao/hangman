@@ -55,7 +55,7 @@ function getRandomWord() {
 
 //Gets an string with underscores.
 function getDashedString(word) {
-    string = "";
+    var string = "";
     for (var i = 0; i < word.length; i++) {
         string += "?";
         userAnswer.push("?")
@@ -63,9 +63,9 @@ function getDashedString(word) {
     return string;
 }
 
-//
+//updates the disabled input with the current user answer
 function updateUiAnswer() {
-    console.log(answerArray);
+    document.getElementById("userString").value = userAnswer.join('');
 }
 
 //user guesses letter 
@@ -87,11 +87,11 @@ function userGuessLetter() {
             for (var i = 0; i < answerArray.length; i++) {
                 if (answerArray[i] == userGuessedChar) {
                     userAnswer[i] = userGuessedChar
-                    alreadyUsedChars.push(userGuessedChar)
                 }
             }
+            alreadyUsedChars.push(userGuessedChar)
             updateUiAnswer()
-            // console.log(userAnswer)
+            console.log(userAnswer)
         } else { //guessedChar is not in the answer
             amountOfIncorrectChars += 1
             console.log("Sorry", userGuessedChar, "is not in the answer")
@@ -101,19 +101,19 @@ function userGuessLetter() {
             alreadyUsedChars.push(userGuessedChar)
         }
 
-        isGameOver = checkGameOver(answerArray, amountOfIncorrectChars)
-        if (!isGameOver[0]) {
+        checkIsGameOver = checkGameOver(answerArray, amountOfIncorrectChars)
+        if (!checkIsGameOver[0]) {
             userGuessLetter(answerArray, amountOfIncorrectChars)
         } else {
-            console.log(isGameOver[1])
+            // console.log(checkIsGameOver[1])
+            isGameOver = true;
+            alert("game over")
         }
     }
 }
 
 function checkGameOver(answerArray, amountOfIncorrectChars) {
-    console.log(userAnswer + ", " + answerArray);
-    console.log(userAnswer.toString() === answerArray.toString());
-    if (userAnswer === answerArray) {
+    if (userAnswer.toString() === answerArray.toString()) {
         console.log(true)
         return [true, "You won!"];
     } else if (amountOfIncorrectChars === 5) {
