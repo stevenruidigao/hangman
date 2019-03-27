@@ -12,28 +12,111 @@
 
 <body>
 
-    <center>
-        <div class="card" style="width: 25rem;">
-            <div class="card-body">
-                <center>
-                    <h5 class="card-title">Hangman</h5>
-                </center>
+    <div class="flex-container">
+        <div class="flex-item">
+            <center>
+                <div class="card " style="width: 25rem;">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title">Hangman</h5>
+                        </center>
 
-                <center><input id="userString" class="text-center" type="text" disabled></center>
 
-                <div class="container button-group">
-                    <div class="row">
-                        <div class="col-lg-6 text-right"><button id="startGame" class="btn btn-success" onclick="startGame()">Start Game</button></div>
-                        <div class="col-lg-6 text-left"><button class="btn btn-outline-danger" onclick="resetGame()">Reset Game</button></div>
+                        <div>
+                            <center><input id="userString" class="text-center userStringInput" type="text" disabled>
+                            </center>
+                        </div>
+                        <div>Incorrect Guesses Left: <span id="incorrectGuessesLeftCount">5</span></div>
+                        <div class="container">
+                            <div class="text-center"><button id="startGame" class="btn btn-success startGameBtn"
+                                    onclick="startGame()">Start Game</button></div>
+                        </div>
                     </div>
                 </div>
+            </center>
+            <div class="card keyboard-card" style="width: 40rem;">
+                <div class="card-body">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <div>
+                                    <button id="keyQ" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('Q')">Q</button>
+                                    <button id="keyW" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('W')">W</button>
+                                    <button id="keyE" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('E')">E</button>
+                                    <button id="keyR" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('R')">R</button>
+                                    <button id="keyT" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('T')">T</button>
+                                    <button id="keyY" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('Y')">Y</button>
+                                    <button id="keyU" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('U')">U</button>
+                                    <button id="keyI" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('I')">I</button>
+                                    <button id="keyO" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('O')">O</button>
+                                    <button id="keyP" class="btn btn-light keyBoardKey keyRow1"
+                                        onclick="userGuessLetter('P')">P</button>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div>
+                                    <button id="keyA" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('A')">A</button>
+                                    <button id="keyS" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('S')">S</button>
+                                    <button id="keyD" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('D')">D</button>
+                                    <button id="keyF" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('F')">F</button>
+                                    <button id="keyG" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('G')">G</button>
+                                    <button id="keyH" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('H')">H</button>
+                                    <button id="keyJ" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('J')">J</button>
+                                    <button id="keyK" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('K')">K</button>
+                                    <button id="keyL" class="btn btn-light keyBoardKey keyRow2"
+                                        onclick="userGuessLetter('L')">L</button>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div>
+                                    <button id="keyZ" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('Z')">Z</button>
+                                    <button id="keyX" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('X')">X</button>
+                                    <button id="keyC" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('C')">C</button>
+                                    <button id="keyV" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('V')">V</button>
+                                    <button id="keyB" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('B')">B</button>
+                                    <button id="keyN" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('N')">N</button>
+                                    <button id="keyM" class="btn btn-light keyBoardKey keyRow3"
+                                        onclick="userGuessLetter('M')">M</button>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!-- display msg on game over -->
+            <div class="alert alert-info" id="gameOverMsgAlert">You Won!</div>
         </div>
-    </center>
+    </div>
 
 
 
     <script src="script.js"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
