@@ -1,3 +1,58 @@
-body {
-    background-color: gray;
+html {
+    height: 100%;
+    width: 100%;
 }
+
+body {
+    /* temp background */
+    background-color: whitesmoke;
+    height: 100%;
+    width: 100%;
+}
+
+/* center align cards (vertical + horizontal) */
+.flex-container {
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+    height: 100%;
+}
+
+.flex-item {
+    text-align: center;   
+}
+
+/* upper card */
+.userStringInput {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.startGameBtn {
+    margin-top: 10px;
+    width: 45%;
+}
+
+/* keyboard styles */
+.keyboard-card {
+    margin: 20px 0;
+}
+
+.keyBoardKey {
+    height: 45px;
+    width: 45px;
+}
+
+.keyRow1 {
+    margin: 2px;
+}
+
+.keyRow2 {
+    margin: 2px;
+}
+
+.keyRow3 {
+    margin: 2px;
+}
+
