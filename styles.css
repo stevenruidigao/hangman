@@ -10,6 +10,11 @@ body {
     width: 100%;
 }
 
+#infoTag {
+    /* Hint information paragraph. */
+    font-size: 11px;
+}
+
 /* center align cards (vertical + horizontal) */
 .flex-container {
     display: flex;           /* establish flex container */

@@ -144,10 +144,10 @@ function displayGameOverMsg(gameOverMsg) {
     if (gameOverMsg == 0) {
         gameOverMsgAlert.className = "alert alert-success";
         gameOverMsgAlert.style.visibility = "visible";
-        gameOverMsgAlert.innerHTML = "You Win! click 'Start Game' to play again.";
+        gameOverMsgAlert.innerHTML = "You are a winner! Click the button to play again.";
     } else {
         gameOverMsgAlert.className = "alert alert-danger";
         gameOverMsgAlert.style.visibility = "visible";
-        gameOverMsgAlert.innerHTML = "Nice Try! the answer was " + randomWord + " click 'Start Game' to play again.";
+        gameOverMsgAlert.innerHTML = "You are a complete failure! The answer was " + randomWord + ". Click the button to play again.";
     }
 }
