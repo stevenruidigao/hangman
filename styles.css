@@ -29,6 +29,10 @@ body {
 }
 
 /* upper card */
+.card-title {
+    margin-bottom: 2px;
+}
+
 .userStringInput {
     width: 80%;
     margin-bottom: 10px;
