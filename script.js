@@ -32,7 +32,7 @@ window.onload = function() {
     gameOverMsgAlert.style.visibility = "hidden";
 
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "words.txt", false);
+    rawFile.open("GET", "vocab.txt", false);
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4)
         {
